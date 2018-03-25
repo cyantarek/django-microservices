@@ -3,7 +3,7 @@ version: '2'
 services:
   products_web:
     build: ./products
-    command: python3 ./products/manage.py runserver 0.0.0.0:8001
+    command: python3 ./products/manage.py makemigrations && python3 ./products/manage.py migrate python3 ./products/manage.py runserver 0.0.0.0:8001
     volumes:
       - .:/code
     ports:
@@ -15,7 +15,7 @@ services:
 
   emails_web:
     build: ./emails
-    command: python3 ./emails/manage.py runserver 0.0.0.0:8002
+    command: python3 ./emails/manage.py makemigrations && python3 ./emails/manage.py migrate python3 ./emails/manage.py runserver 0.0.0.0:8002
     volumes:
       - .:/code
     ports:
@@ -27,7 +27,7 @@ services:
 
   orders_web:
     build: ./orders
-    command: python3 ./orders/manage.py runserver 0.0.0.0:8003
+    command: python3 ./orders/manage.py makemigrations && python3 ./orders/manage.py migrate python3 ./orders/manage.py runserver 0.0.0.0:8003
     volumes:
       - .:/code
     ports:
