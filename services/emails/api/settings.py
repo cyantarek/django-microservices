@@ -6,7 +6,7 @@ SECRET_KEY = '********* SET HERE YOUR SECRET *********'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
 	'rest_framework',
