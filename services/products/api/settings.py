@@ -28,6 +28,8 @@ DATABASES = {
 	'default': {
 		'ENGINE': 'djongo',
 		'NAME': 'products',
+		'HOST': 'mongod',
+		'PORT': 27017
 	}
 }
 

@@ -3,36 +3,42 @@ version: '2'
 services:
   products_web:
     build: ./products
-    command: python3 manage.py runserver 0.0.0.0:8001
+    command: python3 ./products/manage.py runserver 0.0.0.0:8001
     volumes:
-      - .:./code
+      - .:/code
     ports:
       - 8001:8001
     depends_on:
       - mongod
+    links:
+      - mongod
 
   emails_web:
     build: ./emails
-    command: python3 manage.py runserver 0.0.0.0:8002
+    command: python3 ./emails/manage.py runserver 0.0.0.0:8002
     volumes:
-      - .:./code
+      - .:/code
     ports:
       - 8002:8002
     depends_on:
       - mongod
+    links:
+      - mongod
 
   orders_web:
     build: ./orders
-    command: python3 manage.py runserver 0.0.0.0:8003
+    command: python3 ./orders/manage.py runserver 0.0.0.0:8003
     volumes:
-      - .:./code
+      - .:/code
     ports:
       - 8003:8003
     depends_on:
       - mongod
+    links:
+      - mongod
 
   mongod:
-    image: mongod:3.4.7
+    image: mongo:3.4.7
     ports:
       - 27017:27017
     command: mongod
