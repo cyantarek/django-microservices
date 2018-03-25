@@ -9,16 +9,15 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
-    'rest_framework',
-	'autofixture',
+	'rest_framework',
 
-    'api'
+	'api'
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+	'django.middleware.security.SecurityMiddleware',
+	'django.middleware.common.CommonMiddleware',
+	'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'api.urls'
@@ -26,10 +25,10 @@ ROOT_URLCONF = 'api.urls'
 WSGI_APPLICATION = 'api.wsgi.application'
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'products',
-    }
+	'default': {
+		'ENGINE': 'djongo',
+		'NAME': 'products',
+	}
 }
 
 LANGUAGE_CODE = 'en-us'
@@ -43,5 +42,5 @@ USE_L10N = True
 USE_TZ = True
 
 REST_FRAMEWORK = {
-    'UNAUTHENTICATED_USER': None
+	'UNAUTHENTICATED_USER': None
 }
