@@ -34,6 +34,7 @@ def add_order(request):
 
 	return Response({"message": "Order successfully created!"})
 
+
 def send_email(order):
 	requests.post("http://127.0.0.1/api/v1/emails/send/", data={
 		"receiver": order.customer_email,

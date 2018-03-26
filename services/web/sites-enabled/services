@@ -1,0 +1,29 @@
+server {
+
+    listen 80;
+    charset utf-8;
+
+    location /api/v1/products {
+      rewrite /api/v1/products(.*) /products$1 break;
+      proxy_redirect off;
+      proxy_set_header Host $host;
+      proxy_pass http://products_web:8001;
+   }
+
+
+   location /api/v1/emails {
+      rewrite /api/v1/emails(.*) /emails$1 break;
+      proxy_pass http://emails_web:8002;
+      proxy_redirect off;
+      proxy_set_header Host $host;
+   }
+
+
+   location /api/v1/orders {
+      rewrite /api/v1/orders(.*) /orders$1 break;
+      proxy_pass http://orders_web:8003;
+      proxy_redirect off;
+      proxy_set_header Host $host;
+   }
+
+}

@@ -8,6 +8,7 @@ services:
       - .:/code
     ports:
       - 8001:8001
+    restart: always
     depends_on:
       - mongod
     links:
@@ -20,6 +21,7 @@ services:
       - .:/code
     ports:
       - 8002:8002
+    restart: always
     depends_on:
       - mongod
     links:
@@ -32,13 +34,30 @@ services:
       - .:/code
     ports:
       - 8003:8003
+    restart: always
     depends_on:
       - mongod
     links:
       - mongod
 
   mongod:
+    restart: always
     image: mongo:3.4.7
     ports:
       - 27017:27017
     command: mongod
+
+  nginx:
+    build: ./web
+    volumes:
+      - ./web/sited-enabled:/etc/nginx/sites-enabled
+    ports:
+      - 80:80
+    links:
+      - products_web
+      - orders_web
+      - emails_web
+    depends_on:
+      - products_web
+      - orders_web
+      - emails_web
