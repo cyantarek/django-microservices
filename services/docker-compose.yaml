@@ -49,8 +49,6 @@ services:
 
   nginx:
     build: ./web
-    volumes:
-      - ./web/sited-enabled:/etc/nginx/sites-enabled
     ports:
       - 80:80
     links:
