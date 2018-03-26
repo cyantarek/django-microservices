@@ -9,7 +9,9 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
+	'django.contrib.staticfiles',
 	'rest_framework',
+	'rest_framework_swagger',
 
 	'api'
 ]
@@ -28,7 +30,7 @@ DATABASES = {
 	'default': {
 		'ENGINE': 'djongo',
 		'NAME': 'products',
-		'HOST': 'mongod',
+		# 'HOST': 'mongod',
 		'PORT': 27017
 	}
 }
@@ -46,3 +48,23 @@ USE_TZ = True
 REST_FRAMEWORK = {
 	'UNAUTHENTICATED_USER': None
 }
+
+TEMPLATES = [
+	{
+		'BACKEND': 'django.template.backends.django.DjangoTemplates',
+		'DIRS': [],
+		'APP_DIRS': True,
+		'OPTIONS': {
+			'context_processors': [
+				'django.template.context_processors.debug',
+				'django.template.context_processors.request',
+				'django.contrib.auth.context_processors.auth',
+				'django.contrib.messages.context_processors.messages',
+			],
+		},
+	},
+]
+
+STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
