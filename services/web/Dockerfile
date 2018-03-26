@@ -1,5 +1,7 @@
 FROM nginx
 
-ADD ./sites-enabled/ /etc/nginx/sites-enabled
+RUN rm /etc/nginx/conf.d/default.conf
 
-RUN ls /etc/nginx/sites-enabled
+ADD ./services /etc/nginx/conf.d/
+
+RUN ls /etc/nginx/conf.d/
