@@ -1,3 +1,5 @@
+# UNMAINTAINED
+
 # Microservices architecture based web application
 
 This is example web application based on microservices architecture. It has 3 decoupled and scalable services:
@@ -10,6 +12,7 @@ Technology Stack:
 01. Python 
 02. Django/Django REST Framework
 03. Mongodb
+
 04. Nginx
 05. Docker
 06. Swagger UI
